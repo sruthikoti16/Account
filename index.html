@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Validation</title>
+    <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+    <header>Input Validation</header>
+    <section>
+        <h1>Create Account</h1>
+        <div class="grid">
+            <div>
+                <label>First Name*</label>
+                <input type="text" id="firstname" placeholder="Enter First Name"/>
+            </div>
+            <div>
+                <label>Last Name*</label>
+                <input type="text" id="lastname" placeholder="Enter Last Name"/>
+            </div>
+        </div>
+             <div class="grid">
+            <div>
+                <label>Email ID*</label>
+                <input type="text" id="emailid" placeholder="Enter Email ID"/>
+            </div>
+            <div>
+                <label>Phone Number*</label>
+                <input type="text" id="phone" placeholder="Enter Phone Number"/>
+            </div>
+        </div>
+        <div class="grid">
+            <div>
+                <label>Select Country*</label>
+                <select id="country">
+                    <option value="">select</option>
+                    <option value="India">India</option>
+                    <option value="China">China</option>
+                    <option value="UK">UK</option>
+                    <option value="Japan">Japan</option>
+                </select>
+            </div>
+            <div>
+                <label>Date of Birth*</label>
+                <input type="date" id="dob" placeholder="Enter Date of Birth"/>
+            </div>
+        </div>
+        <div class="grid">
+            <div>
+                <label>Password*</label>
+                <input type="password" id="password" placeholder="Enter Password"/>
+            </div>
+            <div>
+                <label>Confirm Password*</label>
+                <input type="password" id="confirmpassword" placeholder="Enter Password again"/>
+            </div>
+        </div>
+            <div class="terms">
+                <input type="checkbox" id="terms" />
+                <label>Accept terms and Conditions</label>
+            </div>
+            <button onclick="register()">Register</button>
+    </section>
+    <footer>Designed by TEJASREE JAKKA</footer>
+</body>
+<script>
+    function register(){
+        firstname.style.border = "" ;
+        lastname.style.border = "" ;
+        emailid.style.border = "";
+        phone.style.border = "";
+        country.style.border = "";
+        dob.style.border =  "";
+        password.style.border = "";
+        confirmpassword.style.border = "";
+        terms.style.border = "";
+        if(firstname.value == ""){
+            firstname.style.border = "1px solid red";
+            firstname.focus();
+            return;
+        }
+        if(lastname.value == ""){
+            lastname.style.border = "1px solid red";
+            lastname.focus();
+            return;
+        }
+        if(emailid.value == ""){
+             emailid.style.border = "1px solid red";
+             emailid.focus();
+             return;
+        }
+        if(phone.value == ""){
+            phone.style.border = "1px solid red"
+            phone.focus();
+            return;
+        }
+        if(country.value == ""){
+            country.style.border = "1px solid red"
+            country.focus();
+            return;
+        }
+        if(dob.value == ""){
+            dob.style.border = "1px solid red"
+            dob.focus();
+            return;
+        }
+        if(password.length < 8){
+            password.style.boreder = "1px solid red";
+            password.focus();
+            alert("Password must have 8 characters");
+            return;
+        }
+        if(confirmpassword.value != password.value){
+            confirmpassword.style.border = "1px solid red";
+            confirmpassword.focus();
+            alert("password mis-matched");
+            return;
+        }
+        if(!terms.checked){
+            alert("please accept terms and conditions");
+            terms.focus();
+            return;
+        }
+        alert("New account has been created");
+    }
+</script>
+</html>
